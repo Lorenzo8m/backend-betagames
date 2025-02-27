@@ -43,9 +43,9 @@ public class Utilities {
     return formatter.parse(dataString);
   }
 
-  public static String convertDateToString(Date date) throws ParseException{
+  public static String convertDateToString(Date date) throws ParseException {
     DateFormat formatter = new SimpleDateFormat(PATTERN_DATE, Locale.ITALY);
-		return formatter.format(date);
+    return formatter.format(date);
   }
 
   public static AuthorsDTO builAuthorsDTO(Authors authors) {
@@ -54,8 +54,7 @@ public class Utilities {
         authors.getBiography(),
         authors.getCountry(),
         authors.getLastname(),
-        authors.getName()
-        );
+        authors.getName());
   }
 
   public static List<AuthorsDTO> buildAuthorsDTO(List<Authors> authorsList) {
@@ -75,8 +74,7 @@ public class Utilities {
             cart.getId(),
             cart.getCreatedAt(),
             cart.getUpdatedAt(),
-            buildDetailsCartsDTO(cart.getListDetailsCart())
-          ))
+            buildDetailsCartsDTO(cart.getListDetailsCart())))
         .collect(Collectors.toList());
   }
 
@@ -107,8 +105,7 @@ public class Utilities {
         .map(dCart -> new DetailsCartDTO(
             dCart.getId(),
             dCart.getQuantity(),
-            buildGamesDTO(dCart.getGame())
-        ))
+            buildGamesDTO(dCart.getGame())))
         .collect(Collectors.toList());
   }
 
@@ -116,8 +113,7 @@ public class Utilities {
     return new DetailsCartDTO(
         dC.getId(),
         dC.getQuantity(),
-        buildGamesDTO(dC.getGame()
-        ));
+        buildGamesDTO(dC.getGame()));
   }
 
   // builder per il singolo DetailsOrderDTO
@@ -178,21 +174,21 @@ public class Utilities {
   public static List<GamesDTO> buildGamesDTO(List<Games> gs) {
     return gs.stream()
         .map(g -> new GamesDTO(
-          g.getId(),
-          g.getName(),
-          g.getDate(),
-          g.getMinGameTime(),
-          g.getMaxGameTime(),
-          g.getMinPlayerNumber(),
-          g.getMaxPlayerNumber(),
-          g.getMinAge(),
-          g.getDescription(),
-          g.getStockQuantity(),
-          g.getPrice(),
-          buildEditorsDTO(g.getEditor()),
-          buildAuthorsDTO(g.getListAuthors()),
-          buildCategoriesDTO(g.getListCategory()),
-          buildReviewsDTO(g.getListReviews())))
+            g.getId(),
+            g.getName(),
+            g.getDate(),
+            g.getMinGameTime(),
+            g.getMaxGameTime(),
+            g.getMinPlayerNumber(),
+            g.getMaxPlayerNumber(),
+            g.getMinAge(),
+            g.getDescription(),
+            g.getStockQuantity(),
+            g.getPrice(),
+            buildEditorsDTO(g.getEditor()),
+            buildAuthorsDTO(g.getListAuthors()),
+            buildCategoriesDTO(g.getListCategory()),
+            buildReviewsDTO(g.getListReviews())))
         .collect(Collectors.toList());
   }// List buildGamesDTO
 
@@ -246,28 +242,33 @@ public class Utilities {
             ps.getBillingAddress(),
             ps.getCreatedAt(),
             ps.getUpdatedAt(),
-            ps.getActive()
-          ))
+            ps.getActive()))
         .collect(Collectors.toList());
   }// List buildPayCardsDTO
+
+  public static UsersDTO newBuildUsersDTO(Users u) {
+    return new UsersDTO(
+        u.getId(),
+        u.getUsername());
+  }// buildUsersDTO
 
   public static ReviewsDTO buildReviewsDTO(Reviews r) {
     return new ReviewsDTO(
         r.getId(),
+        newBuildUsersDTO(r.getUser()),
         r.getScore(),
         r.getDescription(),
-        r.getCreatedAt()
-        );
+        r.getCreatedAt());
   }// buildReviewsDTO
 
   public static List<ReviewsDTO> buildReviewsDTO(List<Reviews> r) {
     return r.stream()
         .map(re -> new ReviewsDTO(
             re.getId(),
+            newBuildUsersDTO(re.getUser()),
             re.getScore(),
             re.getDescription(),
-            re.getCreatedAt()
-            ))
+            re.getCreatedAt()))
         .collect(Collectors.toList());
   }// buildReviewsDTO
 
@@ -275,8 +276,7 @@ public class Utilities {
   public final static RolesDTO buildRolesDTO(Roles r) {
     return new RolesDTO(
         r.getId(),
-        r.getName()
-      );
+        r.getName());
   }
 
   // builder per farsi restituire la lista di RolesDTO
@@ -284,40 +284,37 @@ public class Utilities {
     return listRoles.stream()
         .map(role -> new RolesDTO(
             role.getId(),
-            role.getName()
-           ))
+            role.getName()))
         .collect(Collectors.toList());
   }
-  
+
   public final static DetailsShippingDTO buildDetailsShipping(DetailsShipping d) {
-	  return new DetailsShippingDTO(
-			  d.getId(),
-			  d.getName(),
-			  d.getLastname(),
-			  d.getCountry(),
-			  d.getStateRegion(),
-			  d.getCap(),
-			  d.getCity(),
-			  d.getAddress(),
-			  d.getActive()
-			  );
+    return new DetailsShippingDTO(
+        d.getId(),
+        d.getName(),
+        d.getLastname(),
+        d.getCountry(),
+        d.getStateRegion(),
+        d.getCap(),
+        d.getCity(),
+        d.getAddress(),
+        d.getActive());
   }// buildDetailsShipping
-  
+
   public final static List<DetailsShippingDTO> buildDetailsShipping(List<DetailsShipping> listD) {
-	  return listD.stream()
-			  .map(d -> new DetailsShippingDTO(
-					  d.getId(),
-					  d.getName(),
-					  d.getLastname(),
-					  d.getCountry(),
-					  d.getStateRegion(),
-					  d.getCap(),
-					  d.getCity(),
-					  d.getAddress(),
-					  d.getActive()
-					  ))
-			  .collect(Collectors.toList());
-  }//buildDetailsShipping
+    return listD.stream()
+        .map(d -> new DetailsShippingDTO(
+            d.getId(),
+            d.getName(),
+            d.getLastname(),
+            d.getCountry(),
+            d.getStateRegion(),
+            d.getCap(),
+            d.getCity(),
+            d.getAddress(),
+            d.getActive()))
+        .collect(Collectors.toList());
+  }// buildDetailsShipping
 
   public static UsersDTO buildUsersDTO(Users u) {
     return new UsersDTO(
@@ -329,8 +326,7 @@ public class Utilities {
         buildPayCardsDTO(u.getListPayCards()),
         buildRolesDTO(u.getRole()),
         buildDetailsShipping(u.getListDetailsShippings()),
-        u.getActive()
-        );
+        u.getActive());
   }// buildUsersDTO
 
   public static List<UsersDTO> buildUsersDTO(List<Users> u) {
@@ -344,8 +340,7 @@ public class Utilities {
             buildPayCardsDTO(us.getListPayCards()),
             buildRolesDTO(us.getRole()),
             buildDetailsShipping(us.getListDetailsShippings()),
-            us.getActive()
-            ))
+            us.getActive()))
         .collect(Collectors.toList());
   }// buildUsersDTO
 
