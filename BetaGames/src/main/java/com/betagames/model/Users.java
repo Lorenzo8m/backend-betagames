@@ -34,7 +34,7 @@ public class Users {
 	@OneToOne(mappedBy = "user")
 	private Carts cart;
 
-	@OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
 	private List<Reviews> listReviews;
 
 	@OneToMany(mappedBy = "user", fetch = FetchType.EAGER)

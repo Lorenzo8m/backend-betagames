@@ -13,8 +13,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 public class PasswordEncoderConfig {
 
     /**
-     * Crea e restituisce un'istanza di PasswordEncoder utilizzando l'algoritmo
-     * BCrypt.
      * 
      * @return Un oggetto PasswordEncoder che utilizza BCrypt per la codifica delle
      *         password.

@@ -8,12 +8,14 @@ import java.util.Date;
  */
 public class ReviewsDTO {
     private Integer id;
+    private UsersDTO username;
     private Integer score;
     private String description;
     private Date createdAt;
 
-    public ReviewsDTO(Integer id, Integer score, String description, Date createdAt) {
+    public ReviewsDTO(Integer id, UsersDTO username, Integer score, String description, Date createdAt) {
         this.id = id;
+        this.username = username;
         this.score = score;
         this.description = description;
         this.createdAt = createdAt;
@@ -49,6 +51,14 @@ public class ReviewsDTO {
 
     public void setCreatedAt(Date createdAt) {
         this.createdAt = createdAt;
+    }
+
+    public UsersDTO getUsername() {
+        return username;
+    }
+
+    public void setUsername(UsersDTO username) {
+        this.username = username;
     }
 
     @Override
