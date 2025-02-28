@@ -46,7 +46,7 @@ public class Games {
 
     @Column(name = "description", columnDefinition = "TEXT")
     private String description;
-
+ 
     @Column(name = "stock_quantity", nullable = false)
     private Integer stockQuantity;
 
