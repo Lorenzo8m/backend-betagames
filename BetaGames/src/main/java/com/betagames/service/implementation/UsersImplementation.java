@@ -150,7 +150,7 @@ public class UsersImplementation implements IUsersService {
 
 	
 		SignInDTO resp = new SignInDTO();
-		if (users.isEmpty())
+		if (users.isEmpty() || !users.get().getActive())
 		resp.setLogged(false);
 		else {
 			resp.setId(users.get().getId());
