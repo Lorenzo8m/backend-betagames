@@ -44,7 +44,7 @@ public class Games {
     @Column(name = "min_age")
     private Integer minAge;
 
-    @Column(name = "description")
+    @Column(name = "description", columnDefinition = "TEXT")
     private String description;
 
     @Column(name = "stock_quantity", nullable = false)

@@ -3,7 +3,6 @@ package com.betagames.service.interfaces;
 import java.util.List;
 
 import com.betagames.dto.SignInDTO;
-import com.betagames.dto.TokenDTO;
 import com.betagames.dto.UsersDTO;
 import com.betagames.request.SignInRequest;
 import com.betagames.request.UsersRequest;
