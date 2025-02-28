@@ -15,6 +15,8 @@ import com.betagames.model.Reviews;
 @Repository
 public interface IReviewsRepository extends JpaRepository<Reviews, Integer> {
     List<Reviews> findByUserId(Integer userId);
+
+    List<Reviews> findByGameId(Integer idGames);
     
     Optional<Reviews> findByUserIdAndGameId(Integer userId, Integer gameId);
 

@@ -10,20 +10,16 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.betagames.dto.ReviewsDTO;
-import com.betagames.model.DetailsOrder;
 import com.betagames.model.Games;
-import com.betagames.model.Orders;
 import com.betagames.model.Reviews;
 import com.betagames.model.Users;
 import com.betagames.repository.IDetailsOrderRepository;
 import com.betagames.repository.IGamesRepository;
-import com.betagames.repository.IOrdersRepository;
 import com.betagames.repository.IReviewsRepository;
 import com.betagames.repository.IUsersRepository;
 import com.betagames.request.ReviewsRequest;
 import com.betagames.service.interfaces.IReviewsService;
 import com.betagames.service.interfaces.IServiceMessagesService;
-
 import static com.betagames.utility.Utilities.buildReviewsDTO;
 
 /**
@@ -126,5 +122,11 @@ public class ReviewsImplementation implements IReviewsService {
 
         reviewsRepository.delete(review.get());
     }// delete
+
+    @Override
+    public List<ReviewsDTO> listByGameId(Integer idGames) {
+        List<Reviews> reviews = reviewsRepository.findByGameId(idGames);
+        return buildReviewsDTO(reviews);
+    }
 
 }// class

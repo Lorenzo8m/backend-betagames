@@ -17,6 +17,8 @@ import com.betagames.request.ReviewsRequest;
 public interface IReviewsService {
     List<ReviewsDTO> listByUserId(Integer idUser); 
 
+    List<ReviewsDTO> listByGameId(Integer idGames); 
+
     void create(ReviewsRequest req) throws Exception;
 
     void update(ReviewsRequest req) throws Exception;
