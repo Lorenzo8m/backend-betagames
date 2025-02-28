@@ -22,7 +22,7 @@ public class Reviews {
     @Column(name = "score")
     private Integer score;
 
-    @Column(name = "description")
+    @Column(name = "description", columnDefinition = "TEXT")
     private String description;
 
     @Column(name = "created_at")

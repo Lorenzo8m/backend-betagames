@@ -49,6 +49,21 @@ public class ReviewsController {
         return list;
     }// listByUserId
 
+    @GetMapping("public/reviews/listByGameId")
+    public ResponseList<ReviewsDTO> listByGameId(@RequestParam(value = "id", required = true) Integer idGames) {
+        ResponseList<ReviewsDTO> list = new ResponseList<>();
+        list.setRc(true);
+
+        try {
+            list.setData(reviewsService.listByGameId(idGames));
+        } catch (Exception e) {
+            log.error(e.getMessage());
+            list.setMsg(e.getMessage());
+            list.setRc(false);
+        }
+        return list;
+    }// listByUserId
+
     @PostMapping("user/reviews/create")
     public ResponseBase create(@RequestBody(required = true) ReviewsRequest req) {
         ResponseBase response = new ResponseBase();
