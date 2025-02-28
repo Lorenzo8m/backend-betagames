@@ -17,6 +17,11 @@ public class UsersDTO {
 	private List<DetailsShippingDTO> detailsShipping;
 	private Boolean active;
 
+	public UsersDTO(Integer id, String username){
+		this.id = id;
+		this.username = username;
+	}
+
 	public UsersDTO(Integer id, String username, String email, List<OrdersDTO> listOrdersDTO, CartsDTO carts,
 			List<PayCardsDTO> listPayCardsDTO, RolesDTO role, List<DetailsShippingDTO> detailsShipping,
 			Boolean active) {
