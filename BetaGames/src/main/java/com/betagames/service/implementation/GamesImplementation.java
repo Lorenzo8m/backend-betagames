@@ -152,7 +152,9 @@ public class GamesImplementation implements IGamesService {
             Optional<Authors> a = authorsR.findById(req.getAuthorsId());
             if (a.isPresent()) {
                 Authors author = a.get();
-                g.getListAuthors().add(author);
+                if (!g.getListAuthors().contains(author)) {
+                    g.getListAuthors().add(author);
+                }
             }
         }
 
@@ -160,7 +162,9 @@ public class GamesImplementation implements IGamesService {
             Optional<Categories> c = categoryR.findById(req.getCategoryId());
             if (c.isPresent()) {
                 Categories category = c.get();
-                g.getListCategory().add(category);
+                if (!g.getListCategory().contains(category)) {
+                    g.getListCategory().add(category);                    
+                }
             }
         }
 

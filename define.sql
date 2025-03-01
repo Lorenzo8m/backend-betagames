@@ -1,7 +1,7 @@
 
     create table authors (
         id integer not null auto_increment,
-        biography varchar(255),
+        biography TEXT,
         country varchar(255),
         lastname varchar(255),
         name varchar(255) not null,
@@ -88,7 +88,7 @@
         price float(53) not null,
         stock_quantity integer not null,
         pubblication_date datetime(6),
-        description varchar(255),
+        description TEXT,
         name varchar(255) not null,
         primary key (id)
     ) engine=InnoDB;
@@ -124,7 +124,7 @@
         id_users integer,
         score integer,
         created_at datetime(6),
-        description varchar(255),
+        description TEXT,
         primary key (id)
     ) engine=InnoDB;
 
