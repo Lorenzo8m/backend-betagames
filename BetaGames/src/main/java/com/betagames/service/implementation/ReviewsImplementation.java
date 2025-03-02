@@ -115,8 +115,8 @@ public class ReviewsImplementation implements IReviewsService {
      * solo per admin
      */
     @Override
-    public void delete(ReviewsRequest req) throws Exception {
-        Optional<Reviews> review = reviewsRepository.findById(req.getId());
+    public void delete(Integer id) throws Exception {
+        Optional<Reviews> review = reviewsRepository.findById(id);
         if (!review.isPresent())
             throw new Exception(serviceMessagesService.getMessage("reviews-noPresent"));
 

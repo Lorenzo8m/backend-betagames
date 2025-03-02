@@ -24,5 +24,5 @@ public interface IReviewsService {
     void update(ReviewsRequest req) throws Exception;
 
     // solo per admin
-    void delete(ReviewsRequest req) throws Exception;
+    void delete(Integer id) throws Exception;
 }// interface
