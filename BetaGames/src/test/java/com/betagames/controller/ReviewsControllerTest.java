@@ -203,20 +203,17 @@ public class ReviewsControllerTest {
     @Test
     @Order(5)
     void testDeleteError() {
-        ReviewsRequest reviewsRequest = new ReviewsRequest();
-        reviewsRequest.setId(100);
 
-        ResponseBase response = reviewsController.delete(reviewsRequest);
+        ResponseBase response = reviewsController.delete(100);
         log.debug("testDeleteError: {} " + response.getMsg());
     }// testDeleteError
 
     @Test
     @Order(6)
     void testDelete() {
-        ReviewsRequest reviewsRequest = new ReviewsRequest();
-        reviewsRequest.setId(1);
+    
 
-        ResponseBase response = reviewsController.delete(reviewsRequest);
+        ResponseBase response = reviewsController.delete(1);
         log.debug("testDelete: {} " + response.getMsg());
     }// testDelete
 }// class

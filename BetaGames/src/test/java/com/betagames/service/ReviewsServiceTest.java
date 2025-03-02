@@ -272,11 +272,9 @@ public class ReviewsServiceTest {
 	@Test
 	@Order(8)
 	public void deleteReviewsNotIdTest() throws Exception {
-		ReviewsRequest reviewsRequest = new ReviewsRequest();
-		reviewsRequest.setId(100);
 
 		Exception exception = assertThrows(Exception.class, () -> {
-			reviewsService.delete(reviewsRequest);
+			reviewsService.delete(100);
 		});
 		log.debug("deleteReviewsNotIdTest: {}", exception.getMessage());
 	}// deleteReviewsNotIdTest
@@ -284,10 +282,9 @@ public class ReviewsServiceTest {
 	@Test
 	@Order(9)
 	public void deleteReviewsTest() throws Exception {
-		ReviewsRequest reviewsRequest = new ReviewsRequest();
-		reviewsRequest.setId(1);
 
-		reviewsService.delete(reviewsRequest);
+
+		reviewsService.delete(1);
 
 		List<ReviewsDTO> listReviewsDTO = reviewsService.listByUserId(1);
 
