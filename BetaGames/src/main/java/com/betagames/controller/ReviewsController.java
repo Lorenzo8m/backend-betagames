@@ -8,6 +8,7 @@ package com.betagames.controller;
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -94,13 +95,13 @@ public class ReviewsController {
         return response;
     }// update
 
-    @PostMapping("user/reviews/delete")
-    public ResponseBase delete(@RequestBody(required = true) ReviewsRequest req) {
+    @DeleteMapping("user/reviews/delete")
+    public ResponseBase delete(@RequestParam(required = true) Integer id) {
         ResponseBase response = new ResponseBase();
         response.setRc(true);
 
         try {
-           reviewsService.delete(req);
+           reviewsService.delete(id);
         } catch (Exception e) {
             log.error(e.getMessage());
             response.setMsg(e.getMessage());
